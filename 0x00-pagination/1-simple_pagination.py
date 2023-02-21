@@ -6,11 +6,11 @@ Alx Backend Pagination
 
 
 import csv
-from typing import List
+from typing import List, Tuple
 import math
 
 
-def index_range(page: int, page_size: int) -> tuple:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Function that returns a tuple of size two containing a
     start index and an end index corresponding to the range
