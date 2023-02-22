@@ -11,7 +11,7 @@ class BaseCaching():
     MAX_ITEMS = 4
 
     def __init__(self):
-        """ Initiliaze
+        """ Initiliaze a new BaseCaching Class
         """
         self.cache_data = {}
 
@@ -66,7 +66,7 @@ class BasicCache(BaseCaching):
         BaseCaching
     """
     def __init__(self):
-        """Initialize
+        """Initialize a new BaseCaching Class
         """
         super().__init__()
 
