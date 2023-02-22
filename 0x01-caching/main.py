@@ -1,4 +1,4 @@
- #!/usr/bin/python3
+ #!/usr/bin/env python3
 """ 0-main """
 BasicCache = __import__('0-basic_cache').BasicCache
 
@@ -18,3 +18,4 @@ my_cache.put("E", "Battery")
 my_cache.put("A", "Street")
 my_cache.print_cache()
 print(my_cache.get("A"))
+

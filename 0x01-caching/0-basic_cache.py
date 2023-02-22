@@ -52,8 +52,6 @@ Imports:
     BaseCaching: The Base method for implementing Caching operations
 """
 
-from basic_caching import BaseCaching
-
 
 class BasicCache(BaseCaching):
     """A BaseCache class that inherits BaseCaching
