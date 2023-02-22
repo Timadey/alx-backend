@@ -92,3 +92,4 @@ class BasicCache(BaseCaching):
         """
         item = self.cache_data.get(key)
         return item
+
