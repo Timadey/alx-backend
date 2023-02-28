@@ -14,7 +14,7 @@ Use that class as config for your Flask app.
 """
 
 
-from flask import Flask
+from flask import Flask, request
 from flask_babel import Babel
 
 
@@ -39,4 +39,13 @@ def hello():
     """
     A route that renders index.html templat
     """
-    return render_template('0-index.html')
+    return render_template('1-index.html')
+
+
+@babel.localeselector
+def get_locale():
+    """Create a get_locale function with the babel.localeselector decorator.
+    Use request.accept_languages to determine the 
+    best match with our supported languages.
+    """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
