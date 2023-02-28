@@ -45,7 +45,7 @@ def hello():
 @babel.localeselector
 def get_locale():
     """Create a get_locale function with the babel.localeselector decorator.
-    Use request.accept_languages to determine the 
+    Use request.accept_languages to determine the
     best match with our supported languages.
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
