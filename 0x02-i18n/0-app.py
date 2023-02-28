@@ -15,4 +15,4 @@ def hello():
     """
     A route that renders index.html templat
     """
-    return render_template('index.html')
+    return render_template('0-index.html')
