@@ -15,7 +15,7 @@ Use that class as config for your Flask app.
 
 
 from flask import Flask, request
-from flask_babel import Babel
+from flask_babel import Babel, _
 
 
 app = Flask(__name__)
@@ -34,12 +34,12 @@ class Config(object):
 app.config.from_object(Config)
 
 
-@app.route('/', strict_slashes =False)
+@app.route('/', strict_slashes=False)
 def hello():
     """
     A route that renders index.html templat
     """
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 @babel.localeselector
