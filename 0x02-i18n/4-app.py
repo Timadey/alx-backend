@@ -14,15 +14,23 @@ class Config:
 
 
 app = Flask(__name__)
+app.config.from_object(Config)
 app.url_map.strict_slashes = False
 babel = Babel(app)
-app.config.from_object(Config)
 
 
 @babel.localeselector
 def get_locale() -> str:
     """Retrieves the locale for a web page.
     """
+    query_param = request.query_string.decode('utf-8').split('&')
+    query_table = dict(map(
+        lambda x: (x if '=' in x else '{}='.format(x)).split('='),
+        query_param,
+    ))
+    if 'locale' in query_table:
+        if query_table['locale'] in app.config["LANGUAGES"]:
+            return query_table['locale']
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
@@ -30,7 +38,7 @@ def get_locale() -> str:
 def hello() -> str:
     '''the base route
     '''
-    return render_template('2-index.html')
+    return render_template('4-index.html')
 
 
 if __name__ == '__main__':

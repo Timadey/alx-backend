@@ -1,42 +1,30 @@
 #!/usr/bin/env python3
-"""
-Then instantiate the Babel object in your app.
-Store it in a module-level variable named babel.
-
-In order to configure available languages in our
-app you will create a Config class that has
-LANGUAGES class attribute equal to ["en", "fr"].
-
-Use Config to set Babel’s default locale ("en") and
-timezone ("UTC").
-
-Use that class as config for your Flask app.
-"""
-
-
-from flask import Flask
+'''Flask application
+'''
+from flask import Flask, render_template
 from flask_babel import Babel
 
 
-app = Flask(__name__)
-babel = Babel(app)
-
-
-class Config(object):
-    """Configuration class for appilication
-    """
-
+class Config:
+    '''theFlask Babel configuration.
+    '''
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
+app.url_map.strict_slashes = False
+babel = Babel(app)
 app.config.from_object(Config)
 
 
-@app.route('/', strict_slashes=False)
-def hello():
-    """
-    A route that renders index.html templat
-    """
+@app.route('/')
+def hello() -> str:
+    '''the base route
+    '''
     return render_template('1-index.html')
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
