@@ -12,7 +12,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/', strict_slash=False)
+@app.route('/')
 def hello():
     """
     A route that renders index.html templat
